@@ -1,16 +1,8 @@
 # Automatic Speech Recognition (ASR) with PyTorch
 
-<p align="center">
-  <a href="#about">About</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#license">License</a>
-</p>
-
 ## About
 
-This repository contains a template for solving ASR task with PyTorch. This template branch is a part of the [HSE DLA course](https://github.com/markovka17/dla) ASR homework. Some parts of the code are missing (or do not follow the most optimal design choices...) and students are required to fill these parts themselves (as well as writing their own models, etc.).
+PyTorch-based Automatic Speech Recognition (ASR) project for a Deep Learning for Audio course assignment in the HSE Master's program.
 
 See the task assignment [here](https://github.com/markovka17/dla/tree/2024/hw1_asr).
 
