@@ -1,0 +1,24 @@
+defaults:
+  - model: deepspeech2
+  - metrics: inference
+  - datasets: custom_dir
+  - dataloader: example
+  - transforms: example_only_instance
+  - _self_
+
+text_encoder:
+  _target_: src.text_encoder.CTCTextEncoder
+  decoder_type: bs_lm
+  beam_size: 50
+
+inferencer:
+  device_tensors: ["spectrogram", "text_encoded"] # which tensors should be on device (ex. GPU)
+  device: auto # device name or "auto"
+  from_pretrained: "best_model/model_best.pth"
+  save_path: "custom_audio_dir/predictions"
+  seed: 42
+
+custom_dataset:
+  root: null
+  audio_dir: ${custom_dataset.root}/audio
+  transcription_dir: ${custom_dataset.root}/transcriptions

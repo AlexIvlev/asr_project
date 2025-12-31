@@ -1,0 +1,4 @@
+_target_: src.model.DeepSpeech2
+dim: 640
+gru_layers: 4
+dropout: 0.35

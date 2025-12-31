@@ -1,0 +1,30 @@
+train:
+  get_spectrogram:
+    _target_: torchaudio.transforms.MelSpectrogram
+    sample_rate: 16000
+    n_mels: 128
+
+  spectrogram:
+    _target_: torch.nn.Sequential
+    _args_:
+      - _target_: src.transforms.spec_augs.FreqMask
+        freq_mask_param: 15
+        iid_masks: True
+
+      - _target_: src.transforms.spec_augs.TimeMask
+        time_mask_param: 80
+        iid_masks: True
+
+  audio:
+    _target_: torchvision.transforms.v2.Compose
+    transforms:
+      - _target_: src.transforms.wav_augs.Gain
+        min_gain_in_db: -15
+        max_gain_in_db: 5
+        p: 0.5
+
+inference:
+  get_spectrogram:
+    _target_: torchaudio.transforms.MelSpectrogram
+    sample_rate: 16000
+    n_mels: 128
